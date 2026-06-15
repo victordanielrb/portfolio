@@ -97,6 +97,19 @@ const projectsEn: Project[] = [
     personal: true,
   },
   {
+    title: 'Themis',
+    description:
+      'Intelligent cloud-based legal analysis platform that uses ML and NLP to analyze petitions and identify relevant judicial precedents. Built for judges, lawyers, and court officials at FATEC São José dos Campos.',
+    contributions: [
+      'Acted as Product Owner — defined requirements, backlog, and sprint scope across 3 sprints',
+      'Connected client needs to user flows and features, bridging legal domain requirements with engineering decisions',
+      'Designed and implemented judge-facing screens: PDF petition upload and structured precedent results view with similarity percentages and applicability classification',
+    ],
+    tags: ['Flutter', 'FastAPI', 'Python', 'MongoDB', 'Docker', 'NLP', 'Product Owner'],
+    link: 'https://github.com/Equipe-Skyfall/themis',
+    image: '/img/themis.png',
+  },
+  {
     title: 'TrackerFi',
     description:
       'A platform for cryptocurrency portfolio control and analysis, integrating real-time quotes and offering tools for monitoring multiple wallets simultaneously. Personal project spanning backend, frontend, and database.',
@@ -141,19 +154,6 @@ const projectsEn: Project[] = [
     link: 'https://github.com/Equipe-Skyfall/nectopoint',
     image: '/img/nectopoint.jpg',
   },
-  {
-    title: 'Themis',
-    description:
-      'Intelligent cloud-based legal analysis platform that uses ML and NLP to analyze petitions and identify relevant judicial precedents. Built for judges, lawyers, and court officials at FATEC São José dos Campos.',
-    contributions: [
-      'Acted as Product Owner — defined requirements, backlog, and sprint scope across 3 sprints',
-      'Connected client needs to user flows and features, bridging legal domain requirements with engineering decisions',
-      'Designed and implemented judge-facing screens: PDF petition upload and structured precedent results view with similarity percentages and applicability classification',
-    ],
-    tags: ['Flutter', 'FastAPI', 'Python', 'MongoDB', 'Docker', 'NLP', 'Product Owner'],
-    link: 'https://github.com/Equipe-Skyfall/themis',
-    image: '/img/themis.png',
-  },
 ]
 
 const projectsPt: Project[] = [
@@ -172,6 +172,19 @@ const projectsPt: Project[] = [
     link: 'https://github.com/victordanielrb/vibez',
     image: '/img/vibez.png',
     personal: true,
+  },
+  {
+    title: 'Themis',
+    description:
+      'Plataforma inteligente de análise jurídica na nuvem que utiliza ML e PLN para analisar petições e identificar precedentes judiciais relevantes. Desenvolvida para juízes, advogados e servidores judiciários na FATEC São José dos Campos.',
+    contributions: [
+      'Atuei como Product Owner — definição de requisitos, backlog e escopo de sprints ao longo de 3 ciclos',
+      'Conexão das demandas do cliente com fluxos de usuário e funcionalidades, traduzindo requisitos do domínio jurídico em decisões de engenharia',
+      'Design e implementação das telas do juiz: upload de petições em PDF e visualização de precedentes com percentuais de similaridade e classificação de aplicabilidade',
+    ],
+    tags: ['Flutter', 'FastAPI', 'Python', 'MongoDB', 'Docker', 'NLP', 'Product Owner'],
+    link: 'https://github.com/Equipe-Skyfall/themis',
+    image: '/img/themis.png',
   },
   {
     title: 'TrackerFi',
@@ -217,19 +230,6 @@ const projectsPt: Project[] = [
     tags: ['React.js', 'Scrum Master', 'Agile', 'Front-end'],
     link: 'https://github.com/Equipe-Skyfall/nectopoint',
     image: '/img/nectopoint.jpg',
-  },
-  {
-    title: 'Themis',
-    description:
-      'Plataforma inteligente de análise jurídica na nuvem que utiliza ML e PLN para analisar petições e identificar precedentes judiciais relevantes. Desenvolvida para juízes, advogados e servidores judiciários na FATEC São José dos Campos.',
-    contributions: [
-      'Atuei como Product Owner — definição de requisitos, backlog e escopo de sprints ao longo de 3 ciclos',
-      'Conexão das demandas do cliente com fluxos de usuário e funcionalidades, traduzindo requisitos do domínio jurídico em decisões de engenharia',
-      'Design e implementação das telas do juiz: upload de petições em PDF e visualização de precedentes com percentuais de similaridade e classificação de aplicabilidade',
-    ],
-    tags: ['Flutter', 'FastAPI', 'Python', 'MongoDB', 'Docker', 'NLP', 'Product Owner'],
-    link: 'https://github.com/Equipe-Skyfall/themis',
-    image: '/img/themis.png',
   },
 ]
 
