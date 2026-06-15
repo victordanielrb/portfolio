@@ -92,7 +92,7 @@ const projectsEn: Project[] = [
     ],
     tags: ['React', 'FastAPI', 'Python', 'Gemini AI', 'AI Agents', 'Bun'],
     link: 'https://github.com/victordanielrb/vibez',
-    image: '/img/vibez.jpg',
+    image: '/img/vibez.png',
     personal: true,
   },
   {
@@ -151,7 +151,7 @@ const projectsEn: Project[] = [
     ],
     tags: ['Flutter', 'FastAPI', 'Python', 'MongoDB', 'Docker', 'NLP', 'Product Owner'],
     link: 'https://github.com/Equipe-Skyfall/themis',
-    image: '/img/themis.jpg',
+    image: '/img/themis.png',
   },
 ]
 
@@ -169,7 +169,7 @@ const projectsPt: Project[] = [
     ],
     tags: ['React', 'FastAPI', 'Python', 'Gemini AI', 'AI Agents', 'Bun'],
     link: 'https://github.com/victordanielrb/vibez',
-    image: '/img/vibez.jpg',
+    image: '/img/vibez.png',
     personal: true,
   },
   {
@@ -228,7 +228,7 @@ const projectsPt: Project[] = [
     ],
     tags: ['Flutter', 'FastAPI', 'Python', 'MongoDB', 'Docker', 'NLP', 'Product Owner'],
     link: 'https://github.com/Equipe-Skyfall/themis',
-    image: '/img/themis.jpg',
+    image: '/img/themis.png',
   },
 ]
 

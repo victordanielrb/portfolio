@@ -3,47 +3,48 @@ import { useLanguage } from '../context/LanguageContext'
 import SectionHeading from './SectionHeading'
 import TechCard from './TechCard'
 
+const INITIAL_VISIBLE = 10 // 2 rows × 5 columns (lg breakpoint)
+
 export default function TechnologiesSection() {
   const { t } = useLanguage()
-  const [showExtra, setShowExtra] = useState(false)
+  const [expanded, setExpanded] = useState(false)
+
+  const allTech = [...t.mainTech, ...t.extraTech]
+  const visibleTech = allTech.slice(0, INITIAL_VISIBLE)
+  const hiddenTech = allTech.slice(INITIAL_VISIBLE)
 
   return (
     <section id="technologies">
       <SectionHeading>{t.technologies.title}</SectionHeading>
 
-      {/* Main grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-4">
-        {t.mainTech.map((tech) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        {visibleTech.map((tech) => (
           <TechCard key={tech.name} {...tech} />
         ))}
       </div>
 
-      {/* Expandable extra tech */}
-      <div className={`expand-grid ${showExtra ? 'expanded' : ''}`}>
+      <div className={`expand-grid ${expanded ? 'expanded' : ''}`}>
         <div>
           <div className="expand-content">
-            <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-1 pt-1">
-              {t.extraTech.map((tech) => (
-                <div key={tech.name} className="flex-shrink-0 w-24">
-                  <TechCard {...tech} />
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-3">
+              {hiddenTech.map((tech) => (
+                <TechCard key={tech.name} {...tech} />
               ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Toggle button */}
       <button
-        onClick={() => setShowExtra((v) => !v)}
+        onClick={() => setExpanded((v) => !v)}
         className="mt-4 flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
       >
         <i
           className={`fas fa-chevron-down text-xs transition-transform duration-300 ${
-            showExtra ? 'rotate-180' : ''
+            expanded ? 'rotate-180' : ''
           }`}
         />
-        {showExtra ? t.technologies.showLess : t.technologies.showMore}
+        {expanded ? t.technologies.showLess : t.technologies.showMore}
       </button>
     </section>
   )
