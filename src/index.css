@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    font-family: Poppins, sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0a0a0b;
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: 0.4s ease-out forwards fade-in;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: 0.5s ease-out forwards fade-in-up;
+}
+
+.expand-grid {
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: grid;
+}
+.expand-grid.expanded {
+  grid-template-rows: 1fr;
+}
+.expand-grid > div {
+  overflow: hidden;
+}
+
+.expand-content {
+  opacity: 0;
+  transition: opacity 0.25s 0.1s;
+}
+.expand-grid.expanded .expand-content {
+  opacity: 1;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
