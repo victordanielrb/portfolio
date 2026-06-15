@@ -73,7 +73,8 @@ const mainTech: TechItem[] = [
 ]
 
 const extraTech: TechItem[] = [
-  { name: 'Docker Compose', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', description: 'Multi-container orchestration' },
+  { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', description: 'Cloud infrastructure' },
+  { name: 'GCP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg', description: 'Google Cloud Platform' },
   { name: 'Agile', icon: 'fas fa-arrows-rotate', description: 'Scrum and Kanban' },
   { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', description: 'Enterprise and robust language' },
 ]
