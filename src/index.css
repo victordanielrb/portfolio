@@ -71,6 +71,28 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes backdrop-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+@keyframes modal-out {
+  from { opacity: 1; transform: scale(1)    translateY(0); }
+  to   { opacity: 0; transform: scale(0.95) translateY(12px); }
+}
+
+.modal-backdrop         { animation: backdrop-in  0.2s ease forwards; }
+.modal-backdrop.closing { animation: backdrop-out 0.2s ease forwards; }
+.modal-content          { animation: modal-in  0.25s cubic-bezier(0.16,1,0.3,1) forwards; }
+.modal-content.closing  { animation: modal-out 0.2s ease forwards; }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

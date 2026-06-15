@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import type { Project } from '../i18n/translations'
 import { useLanguage } from '../context/LanguageContext'
 import Tag from './Tag'
@@ -10,35 +10,47 @@ interface Props {
 
 export default function ProjectModal({ project, onClose }: Props) {
   const { t } = useLanguage()
+  const [closing, setClosing] = useState(false)
+
+  const close = () => {
+    setClosing(true)
+    setTimeout(onClose, 200)
+  }
 
   useEffect(() => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    document.body.style.paddingRight = `${scrollbarWidth}px`
+
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
     window.addEventListener('keydown', onKey)
+
     return () => {
       document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
       window.removeEventListener('keydown', onKey)
     }
-  }, [onClose])
+  }, [])
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-      onClick={onClose}
+      className={`modal-backdrop${closing ? ' closing' : ''} fixed inset-0 z-50 flex items-center justify-center p-4`}
+      style={{ backgroundColor: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)' }}
+      onClick={close}
     >
       <div
-        className="bg-[#111113] border border-white/10 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl"
+        className={`modal-content${closing ? ' closing' : ''} bg-[#111113] border border-white/10 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image */}
-        <div className="relative overflow-hidden h-52 rounded-t-2xl">
+        <div className="relative overflow-hidden h-52 rounded-t-2xl flex-shrink-0">
           <img
             src={project.image}
             alt={project.title}
             className="w-full h-full object-cover"
           />
           <button
-            onClick={onClose}
+            onClick={close}
             className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 text-zinc-300 hover:text-white hover:bg-black/80 transition-colors"
           >
             <i className="fas fa-xmark text-sm" />
