@@ -245,8 +245,7 @@ export const translations: Record<Language, Translations> = {
       name: 'Victor Daniel',
       role: 'Fullstack Developer',
       bio: [
-        "I'm a fullstack developer with a passion for building robust, scalable web applications. I work across the entire stack — from designing efficient APIs and database schemas to crafting responsive, accessible frontends.",
-        'I care deeply about code quality, developer experience, and shipping products that actually work. Whether collaborating on a team or working independently, I bring curiosity and pragmatism to every challenge.',
+        'Fullstack developer building robust, scalable web apps — from efficient APIs and database schemas to responsive, accessible frontends. I care about code quality and shipping products that actually work.',
       ],
     },
     projects: {
@@ -299,8 +298,7 @@ export const translations: Record<Language, Translations> = {
       name: 'Victor Daniel',
       role: 'Desenvolvedor Fullstack',
       bio: [
-        'Sou um desenvolvedor fullstack apaixonado por construir aplicações web robustas e escaláveis. Trabalho em toda a stack — desde o design de APIs eficientes e schemas de banco de dados até a criação de frontends responsivos e acessíveis.',
-        'Me importo profundamente com qualidade de código, experiência do desenvolvedor e entrega de produtos que realmente funcionam. Seja colaborando em equipe ou trabalhando de forma independente, trago curiosidade e pragmatismo a cada desafio.',
+        'Desenvolvedor fullstack construindo aplicações web robustas e escaláveis — de APIs eficientes e schemas de banco de dados a frontends responsivos e acessíveis. Me importo com qualidade de código e produtos que realmente funcionam.',
       ],
     },
     projects: {

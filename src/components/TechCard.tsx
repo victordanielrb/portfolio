@@ -4,7 +4,7 @@ export default function TechCard({ name, icon, description }: TechItem) {
   const isFaIcon = icon.startsWith('fa')
 
   return (
-    <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-white/8 transition-all duration-200 group">
+    <div className="brutal-hover group flex flex-col items-center gap-2 p-4 rounded-xl border-[3px] border-zinc-100/25 bg-[#131315] hover:border-zinc-100">
       {isFaIcon ? (
         <i className={`${icon} text-2xl text-zinc-300 group-hover:scale-110 transition-transform duration-200`} />
       ) : (

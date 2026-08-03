@@ -7,10 +7,11 @@ export default function SocialLink({ label, icon, href, download, filename }: So
       target={download ? undefined : '_blank'}
       rel={download ? undefined : 'noopener noreferrer'}
       download={download ? filename : undefined}
-      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-zinc-300 hover:text-white hover:border-purple-500/40 hover:bg-white/8 transition-all duration-200 text-sm font-medium"
+      aria-label={label}
+      title={label}
+      className="brutal-hover flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-zinc-100 bg-[#0a0a0b] text-zinc-300 hover:text-white hover:border-purple-400 transition-colors duration-200 [--brutal-x:3px] [--brutal-y:3px]"
     >
-      <i className={`${icon} text-base`} />
-      {label}
+      <i className={`${icon} text-sm`} aria-hidden="true" />
     </a>
   )
 }

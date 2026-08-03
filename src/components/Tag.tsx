@@ -4,10 +4,10 @@ interface TagProps {
 }
 
 export default function Tag({ label, variant = 'default' }: TagProps) {
-  const base = 'text-xs font-medium px-2.5 py-1 rounded-full'
+  const base = 'font-display text-[11px] sm:text-xs font-bold uppercase tracking-tight px-2.5 py-1 rounded-full border-[2px]'
   const styles =
     variant === 'purple'
-      ? `${base} bg-purple-500/20 text-purple-300 border border-purple-500/30`
-      : `${base} bg-white/5 text-zinc-400 border border-white/10`
+      ? `${base} bg-purple-500 text-white border-zinc-100`
+      : `${base} bg-[#131315] text-white border-zinc-100/30`
   return <span className={styles}>{label}</span>
 }

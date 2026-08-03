@@ -4,6 +4,12 @@ import { useLanguage } from '../context/LanguageContext'
 const SECTIONS = ['about', 'projects', 'technologies'] as const
 type Section = (typeof SECTIONS)[number]
 
+const SECTION_ICONS: Record<Section, string> = {
+  about: 'fa-user',
+  projects: 'fa-diagram-project',
+  technologies: 'fa-layer-group',
+}
+
 export default function Navbar() {
   const { t, lang, switchTo } = useLanguage()
   const [active, setActive] = useState<Section>('about')
@@ -42,52 +48,59 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-[#0a0a0b]/80 border-b border-white/5">
-      <a
-        href="#about"
-        className="text-white font-bold text-sm font-mono tracking-tight hover:text-purple-400 transition-colors"
+    <>
+      {/* Center island — section nav, no mark/logo */}
+      <nav
+        className="brutal-static font-display fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-0.5 sm:gap-1 rounded-full border-[3px] border-zinc-100 bg-[#131315] px-1.5 py-1.5 sm:px-2 sm:py-2 [--brutal-x:4px] [--brutal-y:4px] sm:[--brutal-x:5px] sm:[--brutal-y:5px]"
+        aria-label="Section navigation"
       >
-        {'< VD />'}
-      </a>
-
-      <nav className="flex items-center gap-1">
         {SECTIONS.map((id) => (
           <a
             key={id}
             href={`#${id}`}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+            aria-label={navLabels[id]}
+            className={`flex items-center justify-center w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2 rounded-full text-sm font-bold uppercase tracking-tight transition-all duration-200 whitespace-nowrap ${
               active === id
-                ? 'text-white bg-white/10'
-                : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                ? 'bg-white text-[#0a0a0b]'
+                : 'text-zinc-300 hover:text-white hover:bg-white/10'
             }`}
           >
-            {navLabels[id]}
+            {/* Wrapper spans (not the <i> itself) carry the display utility: Font
+                Awesome's unlayered stylesheet sets display on .fas directly, which
+                beats a Tailwind @layer utility of equal specificity regardless of
+                breakpoint, so the utility has to live on a plain element instead. */}
+            <span className="sm:hidden">
+              <i className={`fas ${SECTION_ICONS[id]} text-sm`} aria-hidden="true" />
+            </span>
+            <span className="hidden sm:inline">{navLabels[id]}</span>
           </a>
         ))}
       </nav>
 
-      <div className="flex items-center gap-1">
+      {/* Right island — language, fixed independent of scroll */}
+      <div
+        className="brutal-static font-display fixed top-4 sm:top-6 right-4 sm:right-6 z-50 flex items-center gap-0.5 rounded-full border-[3px] border-zinc-100 bg-[#131315] p-1 sm:p-1.5 [--brutal-x:3px] [--brutal-y:3px] sm:[--brutal-x:4px] sm:[--brutal-y:4px]"
+        aria-label="Language switch"
+      >
         <button
           onClick={() => switchTo('en')}
-          className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all duration-200 ${
-            lang === 'en'
-              ? 'text-white bg-purple-500/30 border border-purple-500/50'
-              : 'text-zinc-500 hover:text-zinc-300'
+          aria-pressed={lang === 'en'}
+          className={`px-2 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold tracking-tight transition-all duration-200 ${
+            lang === 'en' ? 'bg-white text-[#0a0a0b]' : 'text-zinc-400 hover:text-white'
           }`}
         >
           EN
         </button>
         <button
           onClick={() => switchTo('pt')}
-          className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all duration-200 ${
-            lang === 'pt'
-              ? 'text-white bg-purple-500/30 border border-purple-500/50'
-              : 'text-zinc-500 hover:text-zinc-300'
+          aria-pressed={lang === 'pt'}
+          className={`px-2 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold tracking-tight transition-all duration-200 ${
+            lang === 'pt' ? 'bg-white text-[#0a0a0b]' : 'text-zinc-400 hover:text-white'
           }`}
         >
           PT
         </button>
       </div>
-    </header>
+    </>
   )
 }

@@ -37,7 +37,7 @@ export default function TechnologiesSection() {
 
       <button
         onClick={() => setExpanded((v) => !v)}
-        className="mt-4 flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+        className="brutal font-display mt-6 inline-flex items-center gap-2 rounded-full border-[3px] border-zinc-100 bg-[#131315] px-4 py-2 text-xs font-bold uppercase tracking-tight text-zinc-200 hover:text-white transition-colors duration-200 [--brutal-x:3px] [--brutal-y:3px]"
       >
         <i
           className={`fas fa-chevron-down text-xs transition-transform duration-300 ${
