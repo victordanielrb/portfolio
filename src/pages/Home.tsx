@@ -15,14 +15,14 @@ function HomeContent() {
     <div className="min-h-full text-white">
       <Navbar />
 
-      <div className="max-w-6xl mx-auto px-6 pt-28 sm:pt-32 pb-24">
+      <div className="max-w-6xl mx-auto px-6 pt-28 sm:pt-24 pb-24">
         {/* About — truly fixed to the viewport on desktop, aligned with the
             container's own left edge at every width via the calc() below. */}
         <aside
           id="about"
-          className="animate-fade-in lg:fixed lg:top-36 lg:left-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] lg:w-96"
+          className="animate-fade-in lg:fixed lg:top-24 lg:left-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] lg:w-96"
         >
-          <div className="brutal-static w-full max-w-xs lg:max-w-none rounded-2xl border-[3px] border-zinc-100 bg-[#131315] p-8 lg:flex lg:flex-col lg:h-[calc(100vh-11rem)] lg:overflow-hidden [--brutal-x:8px] [--brutal-y:8px]">
+          <div className="brutal-static w-full max-w-xs lg:max-w-none rounded-2xl border-[3px] border-zinc-100 bg-[#131315] p-6 lg:flex lg:flex-col lg:h-[calc(100vh-8rem)] lg:overflow-hidden [--brutal-x:8px] [--brutal-y:8px]">
             <ProfileImage />
             <ProfileBio />
             <SocialLinks />
