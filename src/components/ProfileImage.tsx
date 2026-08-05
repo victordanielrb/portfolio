@@ -1,6 +1,6 @@
 export default function ProfileImage() {
   return (
-    <div className="relative ml-3 lg:flex-1 lg:min-h-[220px]">
+    <div className="relative ml-3 lg:flex-1 lg:min-h-[200px]">
       {/* Dashed orbit accent */}
       <svg
         className="absolute -top-3 -left-3 w-14 h-14 text-purple-400/70 pointer-events-none"

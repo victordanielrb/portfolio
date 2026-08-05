@@ -15,7 +15,7 @@ export default function ProfileBio() {
       <span className="brutal-static font-display inline-block rounded-full border-[3px] border-zinc-100 bg-purple-500 px-3 py-0.5 text-xs font-extrabold uppercase tracking-wide text-[#0a0a0b] [--brutal-x:3px] [--brutal-y:3px] mb-3">
         {hero.role}
       </span>
-      <div className="space-y-2">
+      <div className="space-y-2 my-3">
         {hero.bio.map((paragraph, i) => (
           <p key={i} className="text-zinc-400 text-sm leading-snug">
             {paragraph}
