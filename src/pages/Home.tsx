@@ -15,7 +15,7 @@ function HomeContent() {
     <div className="min-h-full text-white">
       <Navbar />
 
-      <div className="max-w-6xl mx-auto px-6 pt-28 sm:pt-24 pb-24">
+      <div className="max-w-6xl mx-auto px-6 pt-32 sm:pt-24 pb-24">
         {/* About — truly fixed to the viewport on desktop, aligned with the
             container's own left edge at every width via the calc() below. */}
         <aside
