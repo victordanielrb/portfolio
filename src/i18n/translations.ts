@@ -81,6 +81,22 @@ const extraTech: TechItem[] = [
 
 const projectsEn: Project[] = [
   {
+    title: 'Taggify',
+    description:
+      "NFC digital business-card platform — tap a physical NFC card or tag and it opens the person's profile page, no app install. Full product spanning a public Next.js profile and marketing site and a standalone admin panel to manage client cards and QR redirect codes.",
+    contributions: [
+      'Built the public app (Next.js App Router, Server Components) — marketing landing page, per-user profile pages, and stable /c/<code> redirect codes that can be reassigned without reprinting physical cards',
+      'Data-driven theming engine: 13 background themes, 21 button styles, and per-link accent overrides driven by CSS variables, with relative-luminance contrast logic that auto-picks readable text colors',
+      'Designed a standalone admin panel (taggify-admin) — HMAC-SHA256 session auth, pre-signed Cloudflare R2 uploads with a client-side image pipeline (WebP compression, GIF passthrough), and zod validation at every route boundary',
+      'Offline-first QR workflow: codes are pre-generated and printed before a client exists, then lazily assigned via PATCH — the printed QR never changes; QRs render client-side at 1024px print resolution',
+      'MongoDB Atlas persistence with a hardened connection lifecycle (dev hot-reload-safe client, DNS override for restricted resolvers) and a read-only DB user for the public app',
+    ],
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'MongoDB', 'Cloudflare R2', 'NFC', 'Docker'],
+    link: 'https://github.com/victordanielrb/taggify',
+    image: '/img/taggify.png',
+    personal: true,
+  },
+  {
     title: 'Vibez',
     description:
       'Matches the visual vibe of an image with the sonic vibe of a YouTube playlist. Uses Gemini embeddings + cosine similarity to find the song that best fits the photo. Personal project spanning full architecture design to implementation.',
@@ -157,6 +173,22 @@ const projectsEn: Project[] = [
 ]
 
 const projectsPt: Project[] = [
+  {
+    title: 'Taggify',
+    description:
+      'Plataforma de cartões de visita digitais NFC — encoste um cartão ou tag NFC no celular e o perfil da pessoa abre, sem instalar app. Produto completo que abrange um site público Next.js (página de perfil e marketing) e um painel administrativo independente para gerenciar os cartões dos clientes e os códigos de redirecionamento QR.',
+    contributions: [
+      'Construí o app público (Next.js App Router, Server Components) — landing page de marketing, páginas de perfil por usuário e códigos de redirecionamento estáveis em /c/<code> que podem ser reatribuídos sem reimprimir os cartões físicos',
+      'Motor de temas dirigido por dados: 13 temas de fundo, 21 estilos de botão e sobreposições de cor de acento por link via variáveis CSS, com lógica de contraste por luminância relativa que escolhe automaticamente cores de texto legíveis',
+      'Projetei um painel administrativo independente (taggify-admin) — autenticação de sessão HMAC-SHA256, uploads pré-assinados para Cloudflare R2 com pipeline de imagem no cliente (compressão WebP, passagem de GIF) e validação zod em todas as rotas',
+      'Fluxo de QR offline-first: os códigos são pré-gerados e impressos antes de existir um cliente e depois atribuídos via PATCH — o QR impresso nunca muda; QRs renderizados no cliente a 1024px de resolução de impressão',
+      'Persistência em MongoDB Atlas com ciclo de vida de conexão reforçado (cliente seguro para hot-reload, override de DNS para resolvedores restritos) e usuário read-only no banco para o app público',
+    ],
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'MongoDB', 'Cloudflare R2', 'NFC', 'Docker'],
+    link: 'https://github.com/victordanielrb/taggify',
+    image: '/img/taggify.png',
+    personal: true,
+  },
   {
     title: 'Vibez',
     description:
