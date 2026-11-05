@@ -6,3 +6,11 @@ src/public
 .env
 .env.*
 !.env.example
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Local tooling state
+.commandcode
+.codex
+.impeccable

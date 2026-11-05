@@ -1,29 +1,42 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 
-const SECTIONS = ['about', 'projects', 'technologies'] as const
+const SECTIONS = ['about', 'projects', 'educational', 'technologies'] as const
 type Section = (typeof SECTIONS)[number]
 
 const SECTION_ICONS: Record<Section, string> = {
   about: 'fa-user',
   projects: 'fa-diagram-project',
+  educational: 'fa-graduation-cap',
   technologies: 'fa-layer-group',
 }
 
 export default function Navbar() {
   const { t, lang, switchTo } = useLanguage()
-  const [active, setActive] = useState<Section>('about')
+  const [scrolled, setScrolled] = useState<Section>('about')
+  const [hovered, setHovered] = useState<Section | null>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
+
+  // Hover wins over scroll position; releasing the pointer hands the highlight
+  // back to whichever section the observer last reported.
+  const active = hovered ?? scrolled
 
   useEffect(() => {
     const map = new Map<Element, Section>()
+    const elements: Element[] = []
+
+    const onEnter = (e: Event) => {
+      const id = map.get(e.currentTarget as Element)
+      if (id) setHovered(id)
+    }
+    const onLeave = () => setHovered(null)
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = map.get(entry.target)
-            if (id) setActive(id)
+            if (id) setScrolled(id)
           }
         })
       },
@@ -35,15 +48,25 @@ export default function Navbar() {
       if (el) {
         map.set(el, id)
         observerRef.current!.observe(el)
+        el.addEventListener('mouseenter', onEnter)
+        el.addEventListener('mouseleave', onLeave)
+        elements.push(el)
       }
     })
 
-    return () => observerRef.current?.disconnect()
+    return () => {
+      observerRef.current?.disconnect()
+      elements.forEach((el) => {
+        el.removeEventListener('mouseenter', onEnter)
+        el.removeEventListener('mouseleave', onLeave)
+      })
+    }
   }, [])
 
   const navLabels: Record<Section, string> = {
     about: t.nav.about,
     projects: t.nav.projects,
+    educational: t.nav.educational,
     technologies: t.nav.technologies,
   }
 
@@ -51,7 +74,7 @@ export default function Navbar() {
     <>
       {/* Center island — section nav, no mark/logo */}
       <nav
-        className="brutal-static font-display fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-0.5 sm:gap-1 rounded-full border-[3px] border-zinc-100 bg-[#131315] px-1.5 py-1.5 sm:px-2 sm:py-2 [--brutal-x:4px] [--brutal-y:4px] sm:[--brutal-x:5px] sm:[--brutal-y:5px]"
+        className="brutal-static font-display fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-0 sm:gap-1 rounded-full border-[3px] border-zinc-100 bg-[#131315] px-1.5 py-1.5 sm:px-2 sm:py-2 [--brutal-x:4px] [--brutal-y:4px] sm:[--brutal-x:5px] sm:[--brutal-y:5px]"
         aria-label="Section navigation"
       >
         {SECTIONS.map((id) => (
@@ -85,7 +108,7 @@ export default function Navbar() {
         <button
           onClick={() => switchTo('en')}
           aria-pressed={lang === 'en'}
-          className={`px-2 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold tracking-tight transition-all duration-200 ${
+          className={`px-1.5 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold tracking-tight transition-all duration-200 ${
             lang === 'en' ? 'bg-white text-[#0a0a0b]' : 'text-zinc-400 hover:text-white'
           }`}
         >
@@ -94,7 +117,7 @@ export default function Navbar() {
         <button
           onClick={() => switchTo('pt')}
           aria-pressed={lang === 'pt'}
-          className={`px-2 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold tracking-tight transition-all duration-200 ${
+          className={`px-1.5 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold tracking-tight transition-all duration-200 ${
             lang === 'pt' ? 'bg-white text-[#0a0a0b]' : 'text-zinc-400 hover:text-white'
           }`}
         >
